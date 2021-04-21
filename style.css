@@ -1,0 +1,178 @@
+body {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: 'Lora', serif;
+}
+.container {
+    max-width: 1115px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.logo {
+    font-family:'Lobster Two', serif;
+    margin-top: 15px;
+    margin-left: 4%;
+    margin-right: auto;
+    font-size: 35px;
+}
+
+.shipping-free {
+    margin-top: 40px;
+    margin-right: 15px;
+    font-size: 14px;
+    color: #444444;
+}
+.number {
+    height: fit-content;
+    background-color: #5D6D7E;
+    padding: 0px 4px;
+    color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 63%;
+    left: 3%;
+    font-size: 13px;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+}
+.panier {
+    margin-right: 5%;
+    position: relative;
+}
+.fa-shopping-cart {
+    margin-top: 31px;
+    font-size: 30px;
+    background: linear-gradient(#3f5efb, #fc466b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+/* titre */
+.page-title {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    font-family: 'Lora', serif;
+    color: #444444;
+}
+.teddy-name {
+    font-family: 'Lora', serif;
+    font-size: 18px;
+    color: #444444;
+}
+.news {
+    font-family: 'Alegreya', serif;
+    color: white;
+    margin-left: 5%;
+    font-size: 25px;
+    margin-bottom: 20px;
+    padding: 5px;
+    width: fit-content;
+    background-color: #DF7D7D;
+}
+/* New articles */
+.new-arrivals {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 2px solid #CECECE;
+}
+/* Articles */
+.teddy-pic {
+    width: 30%;
+    height: auto;
+    border-radius: 25px;
+}
+.articles-container {
+    display: flex;
+    flex-wrap: wrap; 
+}
+.teddy-container {
+    display: inline-grid;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    position: relative;
+    background-color: #F2EAEA;
+    border-radius: 25px;
+}
+.teddy-container.old {
+    margin-top: 25px;
+}
+.livraison {
+    background-color: #7F7D7D;
+    color: white;
+    font-family: 'Lora', serif;
+    position: absolute;
+    top: 20%;
+    padding: 6px;
+    right: 20%;
+    border-radius: 13%;
+}
+.teddy-info {
+    display: flex;
+    margin-top: 15px;
+    justify-content: space-between;
+    margin-left: 5%;
+    margin-right: 5%;
+
+    color: #444444;
+}
+.a_partir{
+    font-weight: 700;
+}
+.description {
+    font-family: 'Lora', serif;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    color: #595959;
+}
+.btnAdd {
+    width: fit-content;
+    height: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding : 10px;
+    border-radius: 15px;
+    background-color: #DF7D7D;
+    color: white;
+}
+.teddy-name {
+    margin-left: 10px;
+    margin-bottom: 5px;
+    margin-top: 0;
+}
+.teddy, .teddy-pic {
+    width: 95%;
+    height: 265px;
+    text-align: center;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.promo, .teddy-name, del, .a_partir {
+    width: fit-content;
+}
+/* Footer */
+footer {
+    margin-top: 40px;
+    background-color: rgb(245, 245, 245);
+}
+.colonnes {
+    margin-left: 10%;
+    display: flex;
+    color: #6D6D6D;
+}
+.colonne1, .colonnes2 {
+    margin-right: 135px;
+}
+a {
+    text-decoration: none;
+    color: #6D6D6D;
+}
