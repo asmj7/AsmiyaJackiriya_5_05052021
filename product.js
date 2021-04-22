@@ -6,17 +6,15 @@ function getParameter(teddy) {
     let src = document.querySelector(".teddy-pic").src = `${teddy.imageUrl}`;
     let name = document.querySelector('.teddy-name');
     let description = document.querySelector('.description');
-    description.innerText = `${teddy.description}`
-    name.innerText = `${teddy.name}`
+    description.innerText = `${teddy.description}`;
+    name.innerText = `${teddy.name}`;
     let price = document.querySelector('.price')
-    price.innerText = `${teddy.price}`
-        console.log(src);
-        console.log(teddy);
+    price.innerText = `${(teddy.price/100).toFixed(2)+' €'}`;
 }
 
 fetch(url+id)
-  .then(function (reponse) {
-    return reponse.json();
+  .then(function (response) {
+    return response.json();
   }).then(getParameter)
   .catch(function (error) {
     console.log(error)

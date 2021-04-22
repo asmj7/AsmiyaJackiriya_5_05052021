@@ -64,8 +64,8 @@ function handleProductsData(products) {
 }
 
 fetch(url)
-  .then(function (reponse) {
-    return reponse.json();
+  .then(function (response) {
+    return response.json();
   }).then(handleProductsData)
   .catch(function (error) {
     console.log(error);
