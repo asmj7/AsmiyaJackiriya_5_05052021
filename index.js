@@ -1,11 +1,8 @@
 // Appel de l'API 
 const url = 'http://localhost:3000/api/teddies';
 
-// à utiliser dans product.js
-// const urlParams = new URLSearchParams(window.location.search);
-// const id = urlParams.get('id');
 
-/**
+/*
  * product = {
     id: ObjectID
     name: string
@@ -45,7 +42,7 @@ function generateProductHTML(teddy) {
   h2.innerText = teddy.name;
   let span = document.createElement('span');
   span.className = 'price';
-  span.innerText = `${teddy.price} €`;
+  span.innerText = `${(teddy.price/100).toFixed(2)} €`;
 
   image.appendChild(img);
   info.appendChild(h2);
