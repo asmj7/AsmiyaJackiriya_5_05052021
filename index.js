@@ -13,6 +13,7 @@ const url = 'http://localhost:3000/api/teddies';
  * 
 */
 function generateProductHTML(teddy) {
+
   //Selectionner la div qui va contenir le outerHTML du teddy-container
   let container = document.querySelector('.articles-container')
 

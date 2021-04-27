@@ -1,0 +1,130 @@
+body {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: 'Lora', serif;
+}
+.container {
+    max-width: 1115px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.logo {
+    font-family:'Lobster Two', serif;
+    margin-top: 15px;
+    margin-left: 4%;
+    margin-right: auto;
+    font-size: 35px;
+}
+
+.shipping-free {
+    margin-top: 40px;
+    margin-right: 15px;
+    font-size: 14px;
+    color: #444444;
+}
+.number {
+    height: fit-content;
+    background-color: #5D6D7E;
+    padding: 0px 4px;
+    color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 63%;
+    left: 3%;
+    font-size: 13px;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+}
+.panier {
+    margin-right: 5%;
+    position: relative;
+}
+.fa-shopping-cart {
+    margin-top: 31px;
+    font-size: 30px;
+    background: linear-gradient(#3f5efb, #fc466b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+/* Article */
+
+.selected-product {
+    width: 100%;
+    height: 100%;
+    background-color: #F2EAEA;
+    border-radius: 25px;
+}
+.teddy-container {
+    width: 100%;
+    height: 90%;
+}
+.teddy {
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.teddy-info {
+    display: flex;
+}
+.teddy-name {
+    margin-left: 31%;
+    margin-right: auto;
+}
+.price {
+    margin-right: 31%;
+    margin-left: auto;
+    width: fit-content;
+    margin-top: 26px;
+    margin-bottom: 20px;
+}
+.teddy-pic {
+    width: 100%;
+    border-radius: 25px;
+    margin-top: 20px;
+}
+.description {
+    font-family: 'Lora', serif;
+    color: #595959;
+    width: 38%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.link {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+.btnAdd {
+    width: fit-content;
+    height: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding : 10px;
+    border-radius: 15px;
+    background-color: #DF7D7D;
+    color: white;
+}
+/* Footer */
+footer {
+    margin-top: 40px;
+    background-color: rgb(245, 245, 245);
+}
+.colonnes {
+    margin-left: 10%;
+    display: flex;
+    color: #6D6D6D;
+}
+.colonne1, .colonnes2 {
+    margin-right: 135px;
+}
+a {
+    text-decoration: none;
+    color: #6D6D6D;
+}
