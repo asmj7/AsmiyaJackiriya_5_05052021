@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="product.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Alegreya&display=swap" rel="stylesheet">
@@ -19,33 +19,27 @@
             <a href="index.html" class="logo-link"><h1 class="logo">Orinoco</h1></a>
             <p class="shipping-free">LIVRAISON GRATUITE DÈS 30 €</p>
                 <div class="panier">
-                    <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+                    <a href=""><i class="fas fa-shopping-cart"></i></a>
                     <div class="number">0</div>
                 </div>
         </header>
-    <section class="section">
+    <section>
         <div class="selected-product">
-            <article class="scnd-teddy-container">
-                <div class="scnd-teddy">
-                   <img class="scnd-teddy-pic" src="" alt="">
+            <article class="teddy-container cart">
+                <div class="teddy">
+                   <img class="teddy-pic" src="" alt="">
                 </div>
                 <div class="infos-container">
-                    <div class="scnd-teddy-info">
-                        <h2 class="scnd-teddy-name"></h2>
-                        <span class="scnd-price"></span>
+                    <div class="teddy-info">
+                        <h2 class="teddy-name"></h2>
+                        <span class="price"></span>
+                        <div class="colors"></div>
                     </div>
-                    <div class="description"></div>
-                    <div class="colors"></div>
-                </div>
-                <div class="list">
-                    <form action="/action_page.php" method="get">
-                        <label for="pet-select">Choisissez une couleur :</label>
-                        <select id="select">
-                        </select>
-                    </form>
-                </div>
-                <div class="link">
-                    <a class="btnAdd" href="">Ajouter au pannier</a>
+                    <div class="input-group">
+                        <button onclick="decrement()">-</button>
+                        <input id=demoInput type=number min=0>
+                        <button onclick="increment()">+</button>
+                    </div>
                 </div>
             </article>
         </div>
@@ -64,7 +58,7 @@
         </div>
         </div>  
     </footer>
-    <script src="product.js" defer></script>
+    <!-- <script src="product.js" defer></script> -->
     <script src="cart.js"></script>
 </body>
 </html>

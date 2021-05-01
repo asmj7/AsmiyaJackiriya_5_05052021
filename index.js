@@ -26,9 +26,6 @@ function generateProductHTML(teddy) {
   image.className = 'teddy';
   let info = document.createElement('div');
   info.className = 'teddy-info';
-  let description = document.createElement('div');
-  description.className = 'description';
-  description.innerText = teddy.description;
   let a = document.createElement('a');
   a.className = "btnAdd";
   a.setAttribute('href', `products.html?id=${teddy._id}`);
@@ -50,7 +47,6 @@ function generateProductHTML(teddy) {
   info.appendChild(span);
   article.appendChild(image);
   article.appendChild(info);
-  article.appendChild(description);
   article.appendChild(a);
 
   container.appendChild(article);

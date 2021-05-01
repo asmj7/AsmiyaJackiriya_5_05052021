@@ -4,36 +4,44 @@ const id = urlParams.get('id');
 
 //Afficher le produit sélectionné
 function getParameter(teddy) {
-  let src = document.querySelector(".teddy-pic").src = `${teddy.imageUrl}`;
-  let name = document.querySelector('.teddy-name');
+  let src = document.querySelector(".scnd-teddy-pic").src = `${teddy.imageUrl}`;
+  let name = document.querySelector('.scnd-teddy-name');
   let description = document.querySelector('.description');
-  description.innerText = `${teddy.description}`;
+  let a = document.querySelector('.btnAdd');
   name.innerText = `${teddy.name}`;
-  let price = document.querySelector('.price')
+  description.innerText = `${teddy.description}`;
+  a.setAttribute('href', `cart.html?id=${teddy._id}`);
+  let price = document.querySelector('.scnd-price')
   price.innerText = `${(teddy.price/100).toFixed(2)+' €'}`;
-}
+
+  let options = teddy.colors;
+  optionList(options);
+
+  console.log(teddy)
+  console.log(teddy.colors)
+};
 
 // Input avec liste de couleurs
 function listHTML(teddy) {
-  let datalist = document.querySelector('#datalist')
+  let datalist = document.querySelector('#select')
 
   let options = document.createElement('option')
-  options.innerHTML = `${teddy.colors}`;
-  datalist.appendChild(options)
-  console.log(datalist)
-}
+  options.innerHTML = teddy;
+  datalist.appendChild(options);
+};
 
-function optionList(option) {
-  option.forEach(teddy => {
+function optionList(colors) {
+  colors.forEach((teddy) => {
     listHTML(teddy);
   });
-}
+};
 
 fetch(url+id)
   .then(function (response) {
     return response.json();
   }).then(getParameter)
-  .then(optionList)
+  // .then(listHTML)
+  // .then(optionList(`${teddy.colors}`))
   .catch(function (error) {
     console.log(error)
   });
