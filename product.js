@@ -1,4 +1,5 @@
 const url = 'http://localhost:3000/api/teddies/';
+
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
 
@@ -36,7 +37,7 @@ function optionList(colors) {
   });
 };
 
-fetch(url+id)
+fetch(url + id)
   .then(function (response) {
     return response.json();
   }).then(getParameter)

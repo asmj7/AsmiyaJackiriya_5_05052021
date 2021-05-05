@@ -89,7 +89,7 @@ header {
     margin-right: auto;
     margin-bottom: 20px;
     position: relative;
-    background-color: #F2EAEA;
+    background-color: #F1F0F0;
     border-radius: 25px;
 }
 .teddy-info {
@@ -100,6 +100,18 @@ header {
     margin-top: 20px;
 }
 .btnAdd {
+    width: fit-content;
+    height: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding : 10px;
+    border-radius: 15px;
+    background-color: #DF7D7D;
+    color: white;
+}
+.btnShow {
     width: fit-content;
     height: fit-content;
     margin-left: auto;
@@ -127,17 +139,24 @@ footer {
 .colonnes {
     margin-left: 10%;
     display: flex;
-    color: #6D6D6D;
+    flex-wrap: wrap;
 }
-.colonne1, .colonnes2 {
+.colonne1, .colonne2, .colonne3{
     margin-right: 135px;
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+li>a {
+    text-decoration-line: underline;
+    font-size: 12px;
 }
 a {
     text-decoration: none;
     color: #6D6D6D;
 }
 /* Styles p2 */
-/* Article */
 .section {
     margin-top: 30px;
 }
@@ -197,4 +216,23 @@ form {
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
+}
+/* Styles p3 */
+
+.p3-teddy-container {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 55%;
+}
+.p3-teddy {
+    width: 50%;
+    height: 185px;
+    margin-right: 30px;
+}
+.p3-teddy-pic {
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
 }

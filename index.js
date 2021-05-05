@@ -27,7 +27,7 @@ function generateProductHTML(teddy) {
   let info = document.createElement('div');
   info.className = 'teddy-info';
   let a = document.createElement('a');
-  a.className = "btnAdd";
+  a.className = "btnShow";
   a.setAttribute('href', `products.html?id=${teddy._id}`);
   a.innerText = "Afficher plus";
 
