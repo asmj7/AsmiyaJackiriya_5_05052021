@@ -8,13 +8,12 @@ function getParameter(teddy) {
   let src = document.querySelector(".scnd-teddy-pic").src = `${teddy.imageUrl}`;
   let name = document.querySelector('.scnd-teddy-name');
   let description = document.querySelector('.description');
-  let a = document.querySelector('.btnAdd');
   name.innerText = `${teddy.name}`;
   description.innerText = `${teddy.description}`;
-  a.setAttribute('href', `cart.html?id=${teddy._id}`);
   let price = document.querySelector('.scnd-price')
   price.innerText = `${(teddy.price/100).toFixed(2)+' €'}`;
-
+  // let a = document.querySelector('.btnAdd');
+  // a.setAttribute('href', `${teddy._id}`);
   let options = teddy.colors;
   optionList(options);
 
