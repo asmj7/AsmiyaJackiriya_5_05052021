@@ -256,11 +256,22 @@ a {
     border-top: 1px solid #BCBCBC;
     margin-top: 30px;
 }
+.label-margin {
+    display: grid;
+    row-gap: 5px;
+    width: 340px;
+    margin-bottom: 15px;
+}
 .bloc-button {
     display: block;
     background-color: #916B7F;
     border: none;
     color: white;
-    padding: 20px 170px;
+    padding: 10px 108px;
     border-radius: 12px;
+}
+#form_1 {
+    display: grid;
+    width: fit-content;
+    margin: auto;
 }
