@@ -68,6 +68,6 @@ fetch(url)
     console.log(error);
   });
 
-
+  document.querySelector('.number').innerHTML = localStorage.getItem('number') || 0;
 
 

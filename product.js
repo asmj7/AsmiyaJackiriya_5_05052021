@@ -11,14 +11,9 @@ function getParameter(teddy) {
   name.innerText = `${teddy.name}`;
   description.innerText = `${teddy.description}`;
   let price = document.querySelector('.scnd-price')
-  price.innerText = `${(teddy.price/100).toFixed(2)+' €'}`;
-  // let a = document.querySelector('.btnAdd');
-  // a.setAttribute('href', `${teddy._id}`);
+  price.innerText = `${(teddy.price / 100).toFixed(2) + ' €'}`;
   let options = teddy.colors;
   optionList(options);
-
-  console.log(teddy)
-  console.log(teddy.colors)
 };
 
 // Input avec liste de couleurs
@@ -36,12 +31,56 @@ function optionList(colors) {
   });
 };
 
+
 fetch(url + id)
   .then(function (response) {
     return response.json();
   }).then(getParameter)
-  // .then(listHTML)
-  // .then(optionList(`${teddy.colors}`))
+  // .then(cartHTML)
   .catch(function (error) {
     console.log(error)
   });
+
+
+let btnAdd = document.querySelector('.btnAdd');
+btnAdd.addEventListener("click", function () {
+  // console.log(this.closest('.scnd-teddy-container').getAttribute('data-id'));
+  let name = document.querySelector('.scnd-teddy-name').innerText;
+  let image = document.querySelector('.scnd-teddy-pic').getAttribute('src');
+  let price = parseInt(document.querySelector('.scnd-price').innerText);
+  let produits = JSON.parse(localStorage.getItem('produits')) || [];
+  let productIndex = produits.findIndex(function (element) {
+    return element.id === id;
+  })
+  if (productIndex === -1) {
+    produits.push({
+      id: id,
+      image: image,
+      price: price,
+      name: name,
+      count: 1
+    })
+  } else {
+    produits[productIndex] = {
+      id: id,
+      image: image,
+      price: price,
+      name: name,
+      count: produits[productIndex].count + 1
+    }
+  }
+  localStorage.setItem('produits', JSON.stringify(produits))
+  // console.log(produits[productIndex])
+
+  let msgTotal = produits.reduce(function (prev, cur) {
+    return prev + cur.count;
+  }, 0)
+ document.querySelector('.number').innerHTML = msgTotal;
+  localStorage.setItem('number', msgTotal)
+  // Afficher le produit sélectionné dans la page panier
+
+
+});
+
+
+document.querySelector('.number').innerHTML = localStorage.getItem('number') || 0;

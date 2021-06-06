@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link type="text/html" href="products.html">
+    <link rel="text/html" href="products.html">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Alegreya&display=swap" rel="stylesheet">
@@ -14,90 +15,109 @@
     <script src="https://kit.fontawesome.com/bdf7e61324.js" crossorigin="anonymous"></script>
     <title>Orinoco - Cart</title>
 </head>
+
 <body>
     <div class="container">
         <header>
-            <a href="index.html" class="logo-link"><h1 class="logo">Orinoco</h1></a>
+            <a href="index.html" class="logo-link">
+                <h1 class="logo">Orinoco</h1>
+            </a>
             <p class="shipping-free">LIVRAISON GRATUITE DÈS 30 €</p>
-                <div class="panier">
-                    <a href=""><i class="fas fa-shopping-cart"></i></a>
-                    <div class="number">0</div>
-                </div>
+            <div class="panier">
+                <a href=""><i class="fas fa-shopping-cart"></i></a>
+                <div class="number">0</div>
+            </div>
         </header>
-    <section>
-        <div class="cart-product">
-            <div class="cart-header">Résumé de l'article</div>
-            <article class="p3-teddy-container">
-                <div class="p3-teddy">
-                   <img class="p3-teddy-pic" src="" alt="">
+        <section>
+            <div class="cart-product">
+                <div class="selected-product">
+                    <div class="cart-header">Résumé de l'article</div>
+                    <!-- <article class="p3-teddy-container">
+                        <div class="p3-teddy">
+                            <img class="p3-teddy-pic" src="" alt="">
+                        </div>
+                        <div class="p3-infos-container">
+                            <div class="p3-teddy-info">
+                                <h2 class="p3-teddy-name"></h2>
+                                <span class="p3-price"></span>
+                                <div class="p3-colors"></div>
+                            </div>
+                            <div class="input-group">
+                                <p>Quantitié(s)</p>
+                                <button>-</button>
+                                <input id=demoInput type=number min=0>
+                                <button>+</button>
+                            </div>
+                            <div class="total">
+                                <p>Total</p>
+                                <span class="total-price">0 €</span>
+                            </div>
+                        </div>
+                    </article> -->
                 </div>
-                <div class="p3-infos-container">
-                    <div class="p3-teddy-info">
-                        <h2 class="p3-teddy-name"></h2>
-                        <span class="p3-price"></span>
-                        <div class="p3-colors"></div>
-                    </div>
-                    <div class="input-group">
-                        <p>Quantitié(s)</p>
-                        <button onclick="decrement()">-</button>
-                        <input id=demoInput type=number min=0>
-                        <button onclick="increment()">+</button>
-                    </div>
-                    <div class="total">
-                        <p>Total</p>
-                        <span class="total-price">0 €</span>
-                    </div>
-                </div>
-            </article>
-            <div class="buy">
-                <h3 class="order">Passer commande</h3>
-                <form id="form_1" novalidate="">
-                        <div class="label-margin" for="name">
+                <div class="buy">
+                    <h3 class="order">Passer commande</h3>
+                    <form id="form_1" novalidate="">
+                        <div class="label-margin">
                             Nom
-                        <input id="name" type="text" class="form-control" required="">
+                            <input id="name" type="text" class="form-control" required="">
                         </div>
-                        <div class="label-margin" for="zipcode">
+                        <div class="label-margin">
                             Code postale
-                        <input id="zipcode" type="text" class="form-control" required="">
+                            <input id="zipcode" type="text" class="form-control" required="">
                         </div>
-                        <div class="label-margin" for="adress">
+                        <div class="label-margin">
                             Adresse postale
-                        <input id="adress" type="text" class="form-control" required="">
+                            <input id="adress" type="text" class="form-control" required="">
                         </div>
-                        <div class="label-margin" for="name">
+                        <div class="label-margin">
                             Prénom
-                        <input id="name" type="text" class="form-control" required="">
+                            <input id="name" type="text" class="form-control" required="">
                         </div>
-                        <div class="label-margin" for="city">
+                        <div class="label-margin">
                             Ville
-                        <input id="city" type="text" class="form-control" required="">
+                            <input id="city" type="text" class="form-control" required="">
                         </div>
-                        <div class="label-margin" for="email">
+                        <div class="label-margin">
                             Adresse email
-                        <input id="email" class="form-control" type="email" required="">
+                            <input id="email" class="form-control" type="email" required="">
                         </div>
                         <button class="bloc-button" type="submit">
                             Valider la commande
                         </button>
-                </form>
+                    </form>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
     </div>
     <footer class="footer">
         <div class="colonnes">
-        <div class="colonne1"><h4>À propos</h4>
-            <a class="footer-links" href="#"><p>Fonctionnement du site</p></a>
-            <a class="footer-links" href="#"><p>Condition générales de vente</p></a>
-            <a class="footer-links" href="#"><p>Données de confidentialités</p></a>
+            <div class="colonne1">
+                <h4>À propos</h4>
+                <a class="footer-links" href="#">
+                    <p>Fonctionnement du site</p>
+                </a>
+                <a class="footer-links" href="#">
+                    <p>Condition générales de vente</p>
+                </a>
+                <a class="footer-links" href="#">
+                    <p>Données de confidentialités</p>
+                </a>
+            </div>
+            <div class="colonne2">
+                <h4>Assistance</h4>
+                <a class="footer-links" href="#">
+                    <p>Centre d'aide</p>
+                </a>
+                <a class="footer-links" href="#">
+                    <p>Nous contacter</p>
+                </a>
+            </div>
         </div>
-        <div class="colonne2"><h4>Assistance</h4>
-            <a class="footer-links" href="#"><p>Centre d'aide</p></a>
-            <a class="footer-links" href="#"><p>Nous contacter</p></a>
-        </div>
-        </div>  
     </footer>
     <!-- <script src="product.js" defer></script> -->
     <script src="cart.js"></script>
+
 </body>
+
 </html>
