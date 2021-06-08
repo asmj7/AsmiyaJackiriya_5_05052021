@@ -87,6 +87,15 @@ function cartPage(product) {
         document.querySelector(`[id="${product.id}"] .total`).innerText = `${((produits[productIndex].price * (produits[productIndex].count))).toFixed(2)} €`;
         localStorage.setItem('produits', JSON.stringify(produits));
 
+        // Calcul du total
+        let totalPrice = 0;
+        produits.forEach(element => {
+            totalPrice += element.count * element.price;
+            console.log(element.count)
+            let totalPriceHTML = document.querySelector('.total-price');
+            totalPriceHTML.innerText = 'Total : ' + totalPrice + ' €';
+        });
+
         let msgTotal = produits.reduce(function (prev, cur) {
             return prev + cur.count;
         }, 0);
@@ -115,6 +124,14 @@ function cartPage(product) {
             document.querySelector(`[id="${product.id}"] .choose-qty`).value = produits[productIndex].count;
             document.querySelector(`[id="${product.id}"] .total`).innerText = `${((produits[productIndex].price * (produits[productIndex].count))).toFixed(2)} €`;
         };
+        // Calcul du total
+        let totalPrice = 0;
+        produits.forEach(element => {
+            totalPrice += element.count * element.price;
+            console.log(element.count)
+            let totalPriceHTML = document.querySelector('.total-price');
+            totalPriceHTML.innerText = 'Total : ' + totalPrice + ' €';
+        });
 
         localStorage.setItem('produits', JSON.stringify(produits));
         let msgTotal = produits.reduce(function (prev, cur) {
