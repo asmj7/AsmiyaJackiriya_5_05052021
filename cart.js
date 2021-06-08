@@ -2,7 +2,6 @@ document.querySelector('.number').innerHTML = localStorage.getItem('number') || 
 
 function cartPage(product) {
 
-    let totalPrice = 0;
     // Création d'une balise article, et de 5 div 
     let article = document.createElement('article');
     article.id = product.id;
@@ -70,12 +69,6 @@ function cartPage(product) {
 
     infoContainer.appendChild(total);
 
-    // Calcul du total
-    let totalPriceHTML = document.querySelector('.total-price');
-    totalPrice = product.count * product.price;
-    totalPriceHTML.innerText += totalPrice + ' €';
-    
-
     // incrémenter le nombre de produit au click sur +
     buttonTwo.addEventListener("click", function () {
         let produits = JSON.parse(localStorage.getItem('produits'));
@@ -137,8 +130,14 @@ function cartPage(product) {
 // produit présent dans le localStorage
 function loopOfProducts() {
     let produits = JSON.parse(localStorage.getItem('produits'));
+    let totalPrice = 0;
     produits.forEach(element => {
         cartPage(element);
+        // Calcul du total
+        totalPrice += element.count * element.price;
+        console.log(element.count)
+        let totalPriceHTML = document.querySelector('.total-price');
+        totalPriceHTML.innerText = 'Total : ' + totalPrice + ' €';
     });
 }
 loopOfProducts();
