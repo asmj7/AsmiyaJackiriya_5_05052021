@@ -77,8 +77,9 @@ btnAdd.addEventListener("click", function () {
   }, 0)
  document.querySelector('.number').innerHTML = msgTotal;
   localStorage.setItem('number', msgTotal)
-  // Afficher le produit sélectionné dans la page panier
-
+  
+  let h2 = document.querySelector('.scnd-teddy-name').innerText;
+  alert(h2 + ' a été ajouté au panier !');
 
 });
 
