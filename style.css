@@ -79,12 +79,15 @@ header {
     border-radius: 25px;
 }
 .articles-container {
-    display: flex;
-    flex-wrap: wrap; 
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 20px;
+    width: 96%;
+    margin: auto; 
 }
 .teddy-container {
     display: inline-grid;
-    width: 40%;
+    width: fit-content;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
@@ -263,20 +266,27 @@ a {
     border-top: 1px solid #BCBCBC;
     margin-top: 30px;
 }
+.empty {
+    width: fit-content;
+    margin: auto;
+    margin-bottom: 15px;
+}
 .label-margin {
     display: grid;
     row-gap: 5px;
     width: 340px;
     margin-bottom: 15px;
 }
-.bloc-button {
+.submit {
     display: block;
-    background-color: #916B7F;
+    cursor: pointer;
+    background-color: #8C5785;
     border: none;
     color: white;
     padding: 10px 108px;
     border-radius: 12px;
 }
+
 #form_1 {
     display: grid;
     width: fit-content;
@@ -287,4 +297,40 @@ a {
     margin-left: auto;
     margin-right: auto;
     margin-top: 45px;
+}
+
+@media screen and (max-width: 772px) {
+    .articles-container {
+      display: block;
+      width: 90%;
+    }
+    .teddy, .teddy-pic {
+        height: 327px;
+    }
+}
+
+@media screen and (max-width: 512px) {
+    .teddy, .teddy-pic {
+        height: 287px;
+    }
+    .shipping-free {
+        display: none;
+    }
+    .number {
+        top: 71%;
+    }
+}
+@media screen and (max-width: 434px) {
+    .teddy, .teddy-pic {
+        height: 247px;
+    }
+    .page-title {
+        flex-wrap: wrap;
+        width: 70%;
+    }
+}
+@media screen and (max-width: 406px) {
+    .teddy, .teddy-pic {
+        height: 210px;
+    }
 }

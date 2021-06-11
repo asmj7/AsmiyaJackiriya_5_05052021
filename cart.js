@@ -30,7 +30,7 @@ function cartPage(product) {
     let colors = document.createElement('div');
     colors.setAttribute('value', "#")
     colors.className = 'p3-colors';
-    colors.innerText = "Couleur : "
+    colors.innerText = "Couleur :  " + `${product.color}` ;
 
     // input pour la quantité
     let p = document.createElement('p');
@@ -152,12 +152,63 @@ function loopOfProducts() {
         cartPage(element);
         // Calcul du total
         totalPrice += element.count * element.price;
-        console.log(element.count)
+        // console.log(element.count)
         let totalPriceHTML = document.querySelector('.total-price');
         totalPriceHTML.innerText = 'Total : ' + totalPrice + ' €';
     });
 }
 loopOfProducts();
 
+// Vérifier le format de l'adresse mail
+function validation() {
 
+    let form = document.querySelector('#form_1');
+    let email = document.querySelector('#email').value;
+    let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    let invalid = document.querySelector('.text-invalid');
 
+    if (email.match(pattern)) {
+        form.classList.add('valid');
+        form.classList.remove('invalid');
+        invalid.innerText = '';
+    }
+    else {
+        form.classList.remove('valid');
+        form.classList.add('invalid');
+        invalid.innerText = 'Adresse e-mail non valide';
+        invalid.style.color = '#F04824';
+    }
+}
+
+// Vérifier si tous les champs sont bien remplis à la validation
+function validateForm() {
+    var x = document.forms["myForm"]["fname"]["lname"]["city"]["email"].value;
+    let form = document.querySelector('#form_1');
+    let empty = document.querySelector('.empty');
+    if (x == "" || form.className == 'invalid') {
+        empty.innerText = 'veuillez remplir les champs obligatoires';
+        empty.style.color = '#F04824';
+        return false;
+    }
+}
+
+// Récupérer les informations de contact de l'utilisateur à la validation
+let submit = document.querySelector('.submit');
+
+submit.addEventListener('click', function(){
+    let infos = JSON.parse(localStorage.getItem('infos'));
+    let fname = document.querySelector('#fname');
+    let lname = document.querySelector('#lname');
+    let email = document.querySelector('#email');
+
+    if(infos === -1) {
+        infos = {
+            firstName: fname,
+            lastName: lname,
+            email: email
+        }
+    }else {
+
+    }
+    localStorage.setItem('infos', JSON.stringify(infos));
+})

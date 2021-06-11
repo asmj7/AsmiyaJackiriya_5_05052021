@@ -32,37 +32,40 @@
             <div class="cart-product">
                 <div class="selected-product">
                     <div class="cart-header">Résumé de l'article</div>
-                    
+
                 </div>
                 <div class="total-price"> <strong> TOTAL :</strong> </div>
                 <div class="buy">
                     <h3 class="order">Passer commande</h3>
-                    <form id="form_1" novalidate="">
+                    <div class="empty"></div>
+                    <form id="form_1" name="myForm" onsubmit="return validateForm()">
                         <div class="label-margin">
-                            Nom
-                            <input id="name" type="text" class="form-control" required="">
+                            Nom*
+                            <input id="lname" type="text" name="fname" class="form-control" required="">
                         </div>
                         <div class="label-margin">
-                            Prénom
-                            <input id="name" type="text" class="form-control" required="">
+                            Prénom*
+                            <input id="fname" type="text" name="lname" class="form-control" required="">
                         </div>
                         <div class="label-margin">
-                            Adresse email
-                            <input id="email" class="form-control" type="email" required="">
+                            Adresse email*
+                            <input id="email" name="email" class="form-control" type="email" required=""
+                                onkeydown="validation()">
+                            <div class="text-invalid"></div>
+                        </div>
+                        <div class="label-margin">
+                            Ville*
+                            <input id="city" type="text" name="city" class="form-control" required="">
                         </div>
                         <div class="label-margin">
                             Adresse postale
-                            <input id="adress" type="text" class="form-control" required="">
-                        </div>
-                        <div class="label-margin">
-                            Ville
-                            <input id="city" type="text" class="form-control" required="">
+                            <input id="adress" type="text" class="form-control">
                         </div>
                         <div class="label-margin">
                             Code postale
-                            <input id="zipcode" type="text" class="form-control" required="">
+                            <input id="zipcode" type="text" class="form-control">
                         </div>
-                        <button class="bloc-button" type="submit">
+                        <button class="submit" type="submit">
                             Valider la commande
                         </button>
                     </form>
@@ -95,7 +98,7 @@
             </div>
         </div>
     </footer>
-    <!-- <script src="product.js" defer></script> -->
+
     <script src="cart.js"></script>
 
 </body>

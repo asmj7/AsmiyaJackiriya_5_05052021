@@ -47,6 +47,7 @@ btnAdd.addEventListener("click", function () {
   // console.log(this.closest('.scnd-teddy-container').getAttribute('data-id'));
   let name = document.querySelector('.scnd-teddy-name').innerText;
   let image = document.querySelector('.scnd-teddy-pic').getAttribute('src');
+  let color = document.querySelector('#select').value
   let price = parseInt(document.querySelector('.scnd-price').innerText);
   let produits = JSON.parse(localStorage.getItem('produits')) || [];
   let productIndex = produits.findIndex(function (element) {
@@ -58,6 +59,7 @@ btnAdd.addEventListener("click", function () {
       image: image,
       price: price,
       name: name,
+      color: color,
       count: 1
     })
   } else {
@@ -66,6 +68,7 @@ btnAdd.addEventListener("click", function () {
       image: image,
       price: price,
       name: name,
+      color: color,
       count: produits[productIndex].count + 1
     }
   }
