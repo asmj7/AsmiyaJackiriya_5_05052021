@@ -78,11 +78,10 @@ btnAdd.addEventListener("click", function () {
   let msgTotal = produits.reduce(function (prev, cur) {
     return prev + cur.count;
   }, 0)
- document.querySelector('.number').innerHTML = msgTotal;
+  document.querySelector('.number').innerHTML = msgTotal;
   localStorage.setItem('number', msgTotal)
-  
-  let h2 = document.querySelector('.scnd-teddy-name').innerText;
-  alert(h2 + ' a été ajouté au panier !');
+
+  alert(name +" (" + color + ") a été ajouté au panier !");
 
 });
 

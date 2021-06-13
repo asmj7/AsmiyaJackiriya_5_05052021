@@ -30,12 +30,12 @@ function cartPage(product) {
     let colors = document.createElement('div');
     colors.setAttribute('value', "#")
     colors.className = 'p3-colors';
-    colors.innerText = "Couleur :  " + `${product.color}` ;
+    colors.innerHTML = "<strong>Couleur : </strong>" + `${product.color}`;
 
     // input pour la quantité
     let p = document.createElement('p');
     p.className = 'quantity';
-    p.innerText = "Chosissez la quantité"
+    p.innerHTML = "<strong>Chosissez la quantité</strong>"
     let buttonOne = document.createElement('button');
     buttonOne.className = 'minus';
     buttonOne.innerText = '-';
@@ -93,7 +93,7 @@ function cartPage(product) {
             totalPrice += element.count * element.price;
             console.log(element.count)
             let totalPriceHTML = document.querySelector('.total-price');
-            totalPriceHTML.innerText = 'Total : ' + totalPrice + ' €';
+            totalPriceHTML.innerHTML = "Total : " + totalPrice + ' €';
         });
 
         let msgTotal = produits.reduce(function (prev, cur) {
@@ -153,9 +153,9 @@ function loopOfProducts() {
         // Calcul du total
         totalPrice += element.count * element.price;
         // console.log(element.count)
-        let totalPriceHTML = document.querySelector('.total-price');
-        totalPriceHTML.innerText = 'Total : ' + totalPrice + ' €';
     });
+    let totalPriceHTML = document.querySelector('.total-price');
+    totalPriceHTML.innerText = 'Total : ' + totalPrice.toFixed(2) + ' €';
 }
 loopOfProducts();
 
@@ -195,20 +195,29 @@ function validateForm() {
 // Récupérer les informations de contact de l'utilisateur à la validation
 let submit = document.querySelector('.submit');
 
-submit.addEventListener('click', function(){
-    let infos = JSON.parse(localStorage.getItem('infos'));
-    let fname = document.querySelector('#fname');
-    let lname = document.querySelector('#lname');
-    let email = document.querySelector('#email');
+/*
+method: "POST"
+body: {
+    contact: {
+        firstName: ...,
+        lastName: ...,
+        ...
+    },
+    products: [id1, id1, id2, id3]
+}
 
-    if(infos === -1) {
-        infos = {
-            firstName: fname,
-            lastName: lname,
-            email: email
-        }
-    }else {
-
+produits = localstorage;
+products = [];
+produits.forEach(function (produit) {
+    for (i = 0; i < produit.count; i++) {
+        products.push(produit.id);
     }
-    localStorage.setItem('infos', JSON.stringify(infos));
+})
+*/
+
+submit.addEventListener('click', function (event) {
+    event.preventDefault();
+    var myForm = document.getElementById('form_1');
+    formData = new FormData(myForm);
+    console.log(formData.get('fname'))
 })
