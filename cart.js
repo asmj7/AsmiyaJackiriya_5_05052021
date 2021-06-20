@@ -195,6 +195,43 @@ function validateForm() {
 // Récupérer les informations de contact de l'utilisateur à la validation
 let submit = document.querySelector('.submit');
 
+submit.addEventListener('click', function (event) {
+    // event.preventDefault();
+    var myForm = document.getElementById('form_1');
+    formData = new FormData(myForm);
+
+    produits = JSON.parse(localStorage.getItem('produits'));
+    products = [];
+    produits.forEach(function (produit) {
+        for (i = 0; i < produit.count; i++) {
+            products.push(produit.id);
+        }
+    })
+
+    fetch("/login", {
+        method: "POST",
+        body: JSON.stringify({
+            contact: {
+                firstName: '#fname',
+                lastName: '#lname',
+                adress: '#adress',
+                city: '#city',
+                email: '#email'
+            },
+            products: produits
+        })
+    });
+    produits = JSON.parse(localStorage.getItem('produits'));
+    products = [];
+    produits.forEach(function (produit) {
+        for (i = 0; i < produit.count; i++) {
+            products.push(produit.id);
+        }
+    })
+
+    console.log(formData.get('fname'))
+})
+
 /*
 method: "POST"
 body: {
@@ -205,7 +242,6 @@ body: {
     },
     products: [id1, id1, id2, id3]
 }
-
 produits = localstorage;
 products = [];
 produits.forEach(function (produit) {
@@ -214,10 +250,3 @@ produits.forEach(function (produit) {
     }
 })
 */
-
-submit.addEventListener('click', function (event) {
-    event.preventDefault();
-    var myForm = document.getElementById('form_1');
-    formData = new FormData(myForm);
-    console.log(formData.get('fname'))
-})

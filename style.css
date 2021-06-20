@@ -286,7 +286,9 @@ a {
     padding: 10px 108px;
     border-radius: 12px;
 }
-
+.validate {
+    color: white;
+}
 #form_1 {
     display: grid;
     width: fit-content;
@@ -299,6 +301,24 @@ a {
     margin-top: 45px;
 }
 
+/* Confirmation page */
+
+.fa-check-circle {
+    font-size: 115px;
+    margin-top: 30px;
+    color: #ED387C;
+}
+.icon-check {
+    width: 10%;
+    margin: auto;
+}
+.confirmed {
+    font-family: 'Baloo 2', cursive;
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+}
 @media screen and (max-width: 772px) {
     .articles-container {
       display: block;
