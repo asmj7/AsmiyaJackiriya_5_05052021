@@ -81,7 +81,7 @@ btnAdd.addEventListener("click", function () {
   document.querySelector('.number').innerHTML = msgTotal;
   localStorage.setItem('number', msgTotal)
 
-  alert(name +" (" + color + ") a été ajouté au panier !");
+  alert(name + " (" + color + ") a été ajouté au panier !");
 
 });
 

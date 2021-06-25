@@ -196,57 +196,53 @@ function validateForm() {
 let submit = document.querySelector('.submit');
 
 submit.addEventListener('click', function (event) {
-    // event.preventDefault();
-    var myForm = document.getElementById('form_1');
-    formData = new FormData(myForm);
+    event.preventDefault();
+    let myForm = document.getElementById('form_1');
+    let formData = new FormData(myForm);
+    let produits = JSON.parse(localStorage.getItem('produits'));
+    let products = [];
+    let totalPrice = 0;
 
-    produits = JSON.parse(localStorage.getItem('produits'));
-    products = [];
     produits.forEach(function (produit) {
-        for (i = 0; i < produit.count; i++) {
+        totalPrice += produit.count * produit.price;
+        for (let i = 0; i < produit.count; i++) {
             products.push(produit.id);
         }
     })
 
-    fetch("/login", {
+    fetch("http://localhost:3000/api/teddies/order", {
         method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
         body: JSON.stringify({
             contact: {
-                firstName: '#fname',
-                lastName: '#lname',
-                adress: '#adress',
-                city: '#city',
-                email: '#email'
+                firstName: formData.get('fname'),
+                lastName: formData.get('lname'),
+                address: formData.get('adress'),
+                city: formData.get('city'),
+                email: formData.get('email')
             },
-            products: produits
+            products: products
         })
-    });
-    produits = JSON.parse(localStorage.getItem('produits'));
-    products = [];
-    produits.forEach(function (produit) {
-        for (i = 0; i < produit.count; i++) {
-            products.push(produit.id);
-        }
     })
-
-    console.log(formData.get('fname'))
+        .then(function (response) {
+            return response.json();
+        }).then(function (response) {
+            console.log(response)
+            // if (response.status === 200) {
+            //     window.location.replace("./confirm.html")
+            // } else {
+            //     alert('something went wrong');
+            // }
+        }) 
+        .then(order => {
+            localStorage.setItem('orderId', JSON.stringify(order.id))});
+            localStorage.setItem('total', JSON.stringify(totalPrice))
+            window.location.replace("./confirm.html")
+        .catch(function (error) {
+            console.log(error)
+        });
 })
 
-/*
-method: "POST"
-body: {
-    contact: {
-        firstName: ...,
-        lastName: ...,
-        ...
-    },
-    products: [id1, id1, id2, id3]
-}
-produits = localstorage;
-products = [];
-produits.forEach(function (produit) {
-    for (i = 0; i < produit.count; i++) {
-        products.push(produit.id);
-    }
-})
-*/
