@@ -231,16 +231,13 @@ submit.addEventListener('click', function (event) {
             return response.json();
         }).then(function (response) {
             console.log(response)
-            // if (response.status === 200) {
-            //     window.location.replace("./confirm.html")
-            // } else {
-            //     alert('something went wrong');
-            // }
-        }) 
-        .then(order => {
-            localStorage.setItem('orderId', JSON.stringify(order.id))});
-            localStorage.setItem('total', JSON.stringify(totalPrice))
-            window.location.replace("./confirm.html")
+            window.location.replace(`./confirm.html?id=${response.orderId}` + totalPrice)
+            let orderNumber = document.querySelector('.order-number')
+            let totalP = document.querySelector('.total-Price')
+
+            orderNumber.innerText += response.orderId;
+            totalP.innerText += totalPrice;
+        })
         .catch(function (error) {
             console.log(error)
         });

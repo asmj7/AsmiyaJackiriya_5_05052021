@@ -314,10 +314,37 @@ a {
 }
 .confirmed {
     font-family: 'Baloo 2', cursive;
-    width: 80%;
+    font-size: 30px;
+    width: 60%;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 23px;
     text-align: center;
+}
+.text-order-infos {
+    margin: auto;
+    width: fit-content;
+    padding-top: 20px;
+    font-family: 'Baloo 2', cursive;
+}
+.order-number,.total-Price {
+    font-family: 'Baloo 2', cursive;
+    width: fit-content;
+    padding-left: 30px;
+}
+.order-number {
+    margin-top: 10px;
+}
+.order-infos {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    background-color: #D9D8EF;
+    border-radius: 13px;
+    padding-bottom: 25px;
+}
+.order-number,.total-Price {
+    font-size: 23px;
 }
 @media screen and (max-width: 772px) {
     .articles-container {
