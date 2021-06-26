@@ -231,15 +231,9 @@ submit.addEventListener('click', function (event) {
             return response.json();
         }).then(function (response) {
             console.log(response)
-            window.location.replace(`./confirm.html?id=${response.orderId}` + totalPrice)
-            let orderNumber = document.querySelector('.order-number')
-            let totalP = document.querySelector('.total-Price')
-
-            orderNumber.innerText += response.orderId;
-            totalP.innerText += totalPrice;
+            window.location.replace(`confirm.html?orderid=${response.orderId}&totalprice=${totalPrice}`)
         })
         .catch(function (error) {
             console.log(error)
         });
 })
-
