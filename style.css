@@ -15,10 +15,10 @@ body {
     height: fit-content;
 }
 .logo {
-    font-family:'Lobster Two', serif;
-    margin-top: 15px;
+    font-family: 'Lobster Two', serif;
+    margin-top: 23px;
     margin-right: auto;
-    font-size: 35px;
+    font-size: 31px;
     margin-bottom: 0;
 }
 
@@ -344,6 +344,7 @@ a {
 .cart-empty {
     margin-top: 100px;
     font-size: 22px;
+    text-align: center;
 }
 .product-page {
     width: fit-content;

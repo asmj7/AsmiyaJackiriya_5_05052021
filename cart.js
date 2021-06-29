@@ -15,15 +15,10 @@ function cartPage(product) {
     let inputGroup = document.createElement('div');
     inputGroup.className = 'input-group';
     document.querySelector('.cart-product');
-    let totalPrice = document.createElement('div');
-    totalPrice.className = 'total-price';
     let total = document.createElement('div');
     total.className = 'total';
     total.innerHTML = `${((product.price * product.count)).toFixed(2)} €`;
 
-    let header = document.createElement('div')
-    header.className = 'cart-header';
-    header.innerText = `Résumé de l'article`;
     // image de teddy
     let img = document.createElement('img');
     img.className = 'p3-teddy-pic';
@@ -65,7 +60,6 @@ function cartPage(product) {
     inputGroup.appendChild(buttonTwo);
 
     let selectedProduct = document.querySelector('.selected-product');
-    selectedProduct.appendChild(header)
     selectedProduct.appendChild(article);
     article.appendChild(imgContainer);
     article.appendChild(infoContainer);
@@ -74,7 +68,6 @@ function cartPage(product) {
     infoContainer.appendChild(inputGroup);
 
     infoContainer.appendChild(total);
-    selectedProduct.appendChild(totalPrice)
 
     // incrémenter le nombre de produit au click sur +
     buttonTwo.addEventListener("click", function () {
@@ -113,6 +106,7 @@ function cartPage(product) {
     // Enlever le produit si la valeur est égale à 0
     buttonOne.addEventListener('click', function () {
         let produits = JSON.parse(localStorage.getItem('produits'));
+        let number = (localStorage.getItem("number"));
         let productIndex = produits.findIndex(function (element) {
             return element.id === product.id;
         });
@@ -120,6 +114,26 @@ function cartPage(product) {
         if (produits[productIndex].count === 1) {
             produits.splice(productIndex, 1)
             document.getElementById(product.id).remove();
+        } else if (number === '0') {
+
+            let totalPrice = document.querySelector('.total-price')
+            totalPrice.style.cssText = 'display : none;'
+            let cartHeader = document.querySelector('.cart-header')
+            cartHeader.style.cssText = 'display: none;'
+
+            let cartEmpty = document.createElement('div');
+            cartEmpty.innerHTML = `<div class="cart-empty"><strong>Votre panier est vide !</strong></div>`
+            let selectedProduct = document.querySelector('.selected-product');
+            selectedProduct.appendChild(cartEmpty);
+
+            // Enlever la partie pour passer la commande
+            let buy = document.querySelector('.buy');
+            buy.style.cssText = 'display: none;'
+
+            let button = document.createElement('div')
+            button.className = 'product-page'
+            button.innerHTML = `<a href="index.html" class="link-product-page">Voir les produits</a>`
+            selectedProduct.appendChild(button);
         } else {
             produits[productIndex] = {
                 id: product.id,
@@ -131,6 +145,7 @@ function cartPage(product) {
             document.querySelector(`[id="${product.id}"] .choose-qty`).value = produits[productIndex].count;
             document.querySelector(`[id="${product.id}"] .total`).innerText = `${((produits[productIndex].price * (produits[productIndex].count))).toFixed(2)} €`;
         };
+
         // Calcul du total
         let totalPrice = 0;
         produits.forEach(element => {
@@ -151,25 +166,6 @@ function cartPage(product) {
 
 };
 
-// Informer que le panier est vide 
-if(localStorage.getItem("produits") === null) {
-    document.querySelector('.cart-product');
-    let totalPrice = document.createElement('div');
-    totalPrice.className = 'total-price';
-    let selectedProduct = document.querySelector('.selected-product');
-    selectedProduct.appendChild(totalPrice);
-
-    // Enlever la partie pour passer la commande
-    let buy = document.querySelector('.buy');
-    totalPrice.innerHTML = `<div class="cart-empty"><strong>Votre panier est vide !</strong></div>`
-    buy.style.cssText = 'display: none;'
-
-    let button = document.createElement('div')
-    button.className = 'product-page'
-    button.innerHTML = `<a href="index.html" class="link-product-page">Voir les produits</a>`
-    selectedProduct.appendChild(button);
-}
-
 //Boucle de la fonction cartPage pour chaque 
 // produit présent dans le localStorage
 function loopOfProducts() {
@@ -185,6 +181,30 @@ function loopOfProducts() {
     totalPriceHTML.innerText = 'Total : ' + totalPrice.toFixed(2) + ' €';
 }
 loopOfProducts();
+
+// Informer que le panier est vide 
+let number = (localStorage.getItem("number"))
+if (number === '0') {
+
+    let totalPrice = document.querySelector('.total-price')
+    totalPrice.style.cssText = 'display : none;'
+    let cartHeader = document.querySelector('.cart-header')
+    cartHeader.style.cssText = 'display: none;'
+
+    let cartEmpty = document.createElement('div');
+    cartEmpty.innerHTML = `<div class="cart-empty"><strong>Votre panier est vide !</strong></div>`
+    let selectedProduct = document.querySelector('.selected-product');
+    selectedProduct.appendChild(cartEmpty);
+
+    // Enlever la partie pour passer la commande
+    let buy = document.querySelector('.buy');
+    buy.style.cssText = 'display: none;'
+
+    let button = document.createElement('div')
+    button.className = 'product-page'
+    button.innerHTML = `<a href="index.html" class="link-product-page">Voir les produits</a>`
+    selectedProduct.appendChild(button);
+}
 
 // Vérifier le format de l'adresse mail
 function validation() {
@@ -260,7 +280,7 @@ submit.addEventListener('click', function (event) {
             return response.json();
         }).then(function (response) {
             console.log(response)
-                window.location.replace(`confirm.html?orderid=${response.orderId}&totalprice=${totalPrice}`)
+            window.location.replace(`confirm.html?orderid=${response.orderId}&totalprice=${totalPrice}`)
         })
         .catch(function (error) {
             console.log(error)
