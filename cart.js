@@ -110,14 +110,24 @@ function cartPage(product) {
         let productIndex = produits.findIndex(function (element) {
             return element.id === product.id;
         });
-
+        console.log(typeof number)
         if (produits[productIndex].count === 1) {
             produits.splice(productIndex, 1)
             document.getElementById(product.id).remove();
-        } else if (number === '0') {
-
+        } else {
+            produits[productIndex] = {
+                id: product.id,
+                image: product.image,
+                price: product.price,
+                name: product.name,
+                count: produits[productIndex].count - 1
+            }
+            document.querySelector(`[id="${product.id}"] .choose-qty`).value = produits[productIndex].count;
+            document.querySelector(`[id="${product.id}"] .total`).innerText = `${((produits[productIndex].price * (produits[productIndex].count))).toFixed(2)} €`;
+        };
+        if (number === '1') {
             let totalPrice = document.querySelector('.total-price')
-            totalPrice.style.cssText = 'display : none;'
+            totalPrice.style.cssText = 'display: none;'
             let cartHeader = document.querySelector('.cart-header')
             cartHeader.style.cssText = 'display: none;'
 
@@ -134,17 +144,7 @@ function cartPage(product) {
             button.className = 'product-page'
             button.innerHTML = `<a href="index.html" class="link-product-page">Voir les produits</a>`
             selectedProduct.appendChild(button);
-        } else {
-            produits[productIndex] = {
-                id: product.id,
-                image: product.image,
-                price: product.price,
-                name: product.name,
-                count: produits[productIndex].count - 1
-            }
-            document.querySelector(`[id="${product.id}"] .choose-qty`).value = produits[productIndex].count;
-            document.querySelector(`[id="${product.id}"] .total`).innerText = `${((produits[productIndex].price * (produits[productIndex].count))).toFixed(2)} €`;
-        };
+        }
 
         // Calcul du total
         let totalPrice = 0;
@@ -170,21 +170,24 @@ function cartPage(product) {
 // produit présent dans le localStorage
 function loopOfProducts() {
     let produits = JSON.parse(localStorage.getItem('produits'));
+    console.log(produits);
     let totalPrice = 0;
-    produits.forEach(element => {
-        cartPage(element);
-        // Calcul du total
-        totalPrice += element.count * element.price;
-        // console.log(element.count)
-    });
-    let totalPriceHTML = document.querySelector('.total-price');
-    totalPriceHTML.innerText = 'Total : ' + totalPrice.toFixed(2) + ' €';
+    if (produits && produits.length > 0) {
+        produits.forEach(element => {
+            cartPage(element);
+            // Calcul du total
+            totalPrice += element.count * element.price;
+            // console.log(element.count)
+        });
+        let totalPriceHTML = document.querySelector('.total-price');
+        totalPriceHTML.innerText = 'Total : ' + totalPrice.toFixed(2) + ' €';
+    }
 }
 loopOfProducts();
 
 // Informer que le panier est vide 
 let number = (localStorage.getItem("number"))
-if (number === '0') {
+if (number === '0' || !number) {
 
     let totalPrice = document.querySelector('.total-price')
     totalPrice.style.cssText = 'display : none;'
@@ -217,7 +220,7 @@ function validation() {
     if (email.match(pattern)) {
         form.classList.add('valid');
         form.classList.remove('invalid');
-        invalid.innerText = '';
+        invalid.innerText = 'Adress e-mail valide';
     }
     else {
         form.classList.remove('valid');

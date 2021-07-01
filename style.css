@@ -387,6 +387,7 @@ a {
     .page-title {
         flex-wrap: wrap;
         width: 70%;
+        font-size: 20px;
     }
 }
 @media screen and (max-width: 406px) {
@@ -422,4 +423,8 @@ a {
         text-align: center;
     }
 }
-
+@media screen and (max-width: 370px) {
+    #form_1 {
+        width: 90%;
+    }
+}
