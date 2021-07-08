@@ -231,11 +231,12 @@ function validation() {
 }
 
 // Vérifier si tous les champs sont bien remplis à la validation
-function validateForm() {
+function validateForm(event) {
     var x = document.forms["myForm"]["fname"]["lname"]["city"]["email"].value;
     let form = document.querySelector('#form_1');
     let empty = document.querySelector('.empty');
     if (x == "" || form.className == 'invalid') {
+        // event.preventDefault();
         empty.innerText = 'veuillez remplir les champs obligatoires';
         empty.style.color = '#F04824';
         return false;
@@ -246,7 +247,7 @@ function validateForm() {
 let submit = document.querySelector('.submit');
 
 submit.addEventListener('click', function (event) {
-    event.preventDefault();
+    // event.preventDefault();
 
 
     let myForm = document.getElementById('form_1');
@@ -290,7 +291,5 @@ submit.addEventListener('click', function (event) {
         });
 
     // Enlever les produits du localstorage après validation de la commande
-    localStorage.removeItem('produits');
-    localStorage.removeItem('number');
-    localStorage.removeItem('total');
+    localStorage.clear();
 })

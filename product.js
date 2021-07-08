@@ -53,6 +53,9 @@ btnAdd.addEventListener("click", function () {
   let productIndex = produits.findIndex(function (element) {
     return element.id === id;
   })
+  console.log(productIndex)
+  console.log(produits);
+  console.log(produits[productIndex]);
   if (productIndex === -1) {
     produits.push({
       id: id,
@@ -73,11 +76,11 @@ btnAdd.addEventListener("click", function () {
     }
   }
   localStorage.setItem('produits', JSON.stringify(produits))
-  // console.log(produits[productIndex])
 
   let msgTotal = produits.reduce(function (prev, cur) {
     return prev + cur.count;
   }, 0)
+  console.log(msgTotal);
   document.querySelector('.number').innerHTML = msgTotal;
   localStorage.setItem('number', msgTotal)
 
