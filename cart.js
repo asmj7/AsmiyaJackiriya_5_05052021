@@ -93,7 +93,7 @@ function cartPage(product) {
             totalPrice += element.count * element.price;
             console.log(element.count)
             let totalPriceHTML = document.querySelector('.total-price');
-            totalPriceHTML.innerHTML = "Total : " + totalPrice + ' €';
+            totalPriceHTML.innerHTML = "Total : " + totalPrice + '€';
         });
 
         let msgTotal = produits.reduce(function (prev, cur) {

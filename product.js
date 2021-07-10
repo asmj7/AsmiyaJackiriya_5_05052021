@@ -51,6 +51,7 @@ btnAdd.addEventListener("click", function () {
   let price = parseInt(document.querySelector('.scnd-price').innerText);
   let produits = JSON.parse(localStorage.getItem('produits')) || [];
   let productIndex = produits.findIndex(function (element) {
+    console.log(element.price);
     return element.id === id;
   })
   console.log(productIndex)
@@ -78,6 +79,8 @@ btnAdd.addEventListener("click", function () {
   localStorage.setItem('produits', JSON.stringify(produits))
 
   let msgTotal = produits.reduce(function (prev, cur) {
+    console.log(prev);
+    console.log(cur);
     return prev + cur.count;
   }, 0)
   console.log(msgTotal);
