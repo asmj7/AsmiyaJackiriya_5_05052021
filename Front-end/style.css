@@ -337,6 +337,7 @@ a {
     background-color: #D9D8EF;
     border-radius: 13px;
     padding-bottom: 25px;
+    padding-right: 20px;
 }
 .order-number,.total-Price {
     font-size: 23px;
@@ -441,4 +442,11 @@ a {
     .text-order-infos {
         margin-bottom: 0;
     }
+}
+
+@media screen and (max-width : 502px) {
+    .empty {
+        width: 60%;
+        text-align: center;
+    }    
 }

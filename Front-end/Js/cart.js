@@ -209,7 +209,7 @@ if (number === '0' || !number) {
     selectedProduct.appendChild(button);
 }
 
-// Vérifier le format de l'adresse mail
+// Afficher un message qui indique si le format est correct ou non
 function validation() {
 
     let form = document.querySelector('#form_1');
@@ -230,27 +230,34 @@ function validation() {
     }
 }
 
-let myForm = document.getElementById('form_1').elements;
-console.log(myForm);
-
 // Récupérer les informations de contact de l'utilisateur à la validation
 let submit = document.querySelector('.submit');
 
-submit.addEventListener('click', function(event) {
-
+submit.addEventListener('click', function (event) {
+    event.preventDefault();
     // Vérifier si tous les champs sont bien remplis à la validation
-    // var x = document.forms["myForm"]["fname"]["lname"]["city"]["email"].value;
-    let myForm = document.getElementById('form_1').elements;
+
+    let myForm = document.getElementById('form_1');
+
+
     let empty = document.querySelector('.empty');
     let email = document.querySelector('#email').value;
     let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-    if (!myForm || myForm.className == 'invalid' || !email.match(pattern)) {
-        event.preventDefault();
-        empty.innerText = 'Veuillez renseigner votre adresse mail';
+    let formElements = document.querySelectorAll('#form_1 input');
+    let hasEmptyValue = false;
+    formElements.forEach(function (element) {
+        console.log(element.getAttribute('required'));
+        if (element.getAttribute("required") === 'true' && !element.value) {
+            hasEmptyValue = true;
+        }
+    })
+    if (!myForm || myForm.className == 'invalid' || !email.match(pattern) || hasEmptyValue) {
+        empty.innerText = 'Veuillez renseigner tous les champs obligatoires au format valide';
         empty.style.color = '#F04824';
         // return false;
     } else {
         let formData = new FormData(myForm);
+        console.log(formData);
         let produits = JSON.parse(localStorage.getItem('produits'));
         let products = [];
         let totalPrice = 0;
