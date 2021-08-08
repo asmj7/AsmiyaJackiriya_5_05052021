@@ -87,7 +87,7 @@ header {
 }
 .teddy-container {
     display: inline-grid;
-    width: fit-content;
+    width: 86%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
@@ -364,6 +364,9 @@ a {
     .articles-container {
       display: block;
       width: 90%;
+    }
+    .teddy-container{
+        width: 100%;
     }
     .teddy, .teddy-pic {
         height: 327px;
